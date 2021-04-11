@@ -1,0 +1,258 @@
+$color-gray: #666;
+$color-black: #000;
+$stripe-height: 7px;
+$btn-color: $color-gray;
+$btn-background: #fff;
+$btn-color-hover: #fff;
+$btn-background-hover: $color-gray;
+$border-color: $color-gray;
+$border-color-hover: $color-black;
+
+@mixin reset-button {
+    overflow : visible;
+    margin : 0;
+    padding : 0;
+    border : 0;
+    background : transparent;
+    font : inherit;
+    line-height : normal;
+    cursor : pointer;
+    -moz-user-select : text;
+    
+    &:-moz-focus-inner {
+        padding : 0;
+        border : 0;
+    }
+}
+
+@keyframes stripe-slide {
+    0% { background-position: 0% 0; }
+    100% { background-position: 100% 0; }
+}
+
+.newDeck-footer{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.btn {
+    @include reset-button;
+    display: block;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 16px 36px 22px;
+    background-color: $btn-background;
+    color: $btn-color;
+    border: 2px solid $border-color;
+    border-radius: 6px;
+    margin-bottom: 16px;
+
+    transition: all .5s ease;
+    
+    &--stripe {
+        overflow: hidden;
+        position: relative;
+        
+        &:after {
+            content: '';
+            display: block;
+            height: $stripe-height;
+            width: 100%;
+            background-image: repeating-linear-gradient(
+                45deg,
+                $border-color,
+                $border-color 1px,
+                transparent 2px,
+                transparent 5px
+            );
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-top: 1px solid $border-color;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            background-size: $stripe-height $stripe-height;
+        }
+
+        &:hover {
+            background-color: $btn-background-hover;
+            color: $btn-color-hover;
+            border-color: $border-color-hover;
+
+            &:after {
+                background-image: repeating-linear-gradient(
+                    45deg,
+                    $btn-color-hover,
+                    $btn-color-hover 1px,
+                    transparent 2px,
+                    transparent 5px
+                );
+                border-top: 1px solid $border-color-hover;
+                animation: stripe-slide 12s infinite linear forwards;
+            }
+        }
+    }
+    
+    &--large {
+        width: 50%;
+    }
+    
+    &--radius {
+        border-radius: 36px;
+    }
+}
+
+.btn-newDeck {
+    @include reset-button;
+    // flex-direction: column;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 16px 36px 22px;
+    background-color: $btn-background;
+    color: $btn-color;
+    border: 2px solid $border-color;
+    border-radius: 6px;
+    margin-bottom: 16px;
+
+    transition: all .5s ease;
+    
+    &--stripe {
+        overflow: hidden;
+        position: relative;
+        
+        &:after {
+            content: '';
+            display: block;
+            height: $stripe-height;
+            width: 100%;
+            background-image: repeating-linear-gradient(
+                45deg,
+                $border-color,
+                $border-color 1px,
+                transparent 2px,
+                transparent 5px
+            );
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-top: 1px solid $border-color;
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            background-size: $stripe-height $stripe-height;
+        }
+
+        &:hover {
+            background-color: $btn-background-hover;
+            color: $btn-color-hover;
+            border-color: $border-color-hover;
+
+            &:after {
+                background-image: repeating-linear-gradient(
+                    45deg,
+                    $btn-color-hover,
+                    $btn-color-hover 1px,
+                    transparent 2px,
+                    transparent 5px
+                );
+                border-top: 1px solid $border-color-hover;
+                animation: stripe-slide 12s infinite linear forwards;
+            }
+        }
+    }
+    
+    &--large {
+        width: 50%;
+    }
+    
+    &--radius {
+        border-radius: 36px;
+    }
+}
+
+@import url(https://fonts.googleapis.com/css?family=Patrick+Hand+SC);
+*{
+  box-sizing:border-box;
+}
+html, body{
+  width:100%; 
+  min-height:100%;
+  margin:0;
+  display:flex;
+  flex-direction:column;
+  background:#F0F0D8;
+  font-family: 'Patrick Hand SC', cursive;
+  & h1{
+    text-align:center;
+    color:#41403E;
+    font-size:3rem;
+  }
+  & section{
+    display:flex;
+    flex-direction:row;
+    justify-content:center;
+    width:100%;
+    min-height:100%;
+    margin-bottom:3rem;
+    & button{
+      align-self:center;
+      background:transparent;
+      padding:1rem 1rem;
+      margin:0 1rem;
+      transition:all .5s ease;
+      color:#41403E;
+      font-size:2rem;
+      letter-spacing:1px;
+      outline:none;
+      box-shadow: 20px 38px 34px -26px hsla(0,0%,0%,.2);
+      border-radius: 255px 15px 225px 15px/15px 225px 15px 255px;
+      /*
+      Above is shorthand for:
+      border-top-left-radius: 255px 15px;
+      border-top-right-radius: 15px 225px;
+      border-bottom-right-radius: 225px 15px;
+      border-bottom-left-radius:15px 255px;
+      */
+       &:hover{
+         box-shadow:2px 8px 4px -6px hsla(0,0%,0%,.3);
+      } 
+      &.lined.thick{
+         border:solid 7px #41403E;
+      }
+      &.dotted.thick{
+         border:dotted 5px #41403E;
+      }
+      &.dashed.thick{
+        border:dashed 5px #41403E;
+      }
+       &.lined.thin{
+         border:solid 2px #41403E;
+      }
+      &.dotted.thin{
+         border:dotted 2px #41403E;
+      }
+      &.dashed.thin{
+        border:dashed 2px #41403E;
+      }
+    }
+  }
+}
+@media (max-width:620px){
+  body{
+    h1{
+      margin-top:2rem;
+    }
+    & section{
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      margin-bottom:1rem;
+      & button{
+        align-self:center;
+        margin-bottom:2rem;
+      }
+    }
+  }
+}

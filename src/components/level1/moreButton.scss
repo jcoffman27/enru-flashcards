@@ -1,0 +1,70 @@
+$bgcolors:#7cd4d4, #e2df45, #e8afbb, #8bc3e5;
+$keycolor:#03384b;
+$subcolor:#f9f6f1;
+
+ 
+.btns {
+  font-family: lato,sans-serif;
+  font-weight: bold;
+  font-size: 1em;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  color: $keycolor;
+  display: inline-block;
+  padding: 20px 40px 20px 40px;
+  display: flex;
+  align-items: center;
+  align-self: center;
+  text-align: center;
+  justify-items: center;
+  justify-content: center;
+  justify-self: center;
+  flex-flow: column; 
+  max-width: 250px;
+  width: 100%;
+  position: relative;
+  border: 3px solid $keycolor;
+  &:before {
+    border: 3px solid $subcolor;
+    background: url(http://www.graphicartsunit.com/images/noise2.png);
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+}
+.button-1 {
+  border-radius: 100em;
+  &:before {
+    border-radius: 100em;
+    left: 2px;
+    top: 1px;
+  }
+}
+.button-2 {
+  border-radius: 5px;
+  &:before {
+    border-radius: 5px;
+    left: 2px;
+    top: 1px;
+  }
+}
+.button-3 {
+  font-size: 1.5em;
+  border: none;
+  text-shadow: 2px 2px 0 $subcolor;
+  &:before {
+    content: none;
+  }
+}
+.button-4 {
+  border-radius: 100em;
+  text-shadow: 2px 2px 0 $subcolor;
+  &:before {
+    border-radius: 100em;
+    background: transparent;
+    left: -1px;
+    top: -1px;
+  }
+}

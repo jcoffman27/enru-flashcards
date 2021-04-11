@@ -1,0 +1,71 @@
+/*- Typograpy and resets -*/
+
+ /*- Card container -*/
+.card-container {
+  position: relative;
+  z-index: 1;
+  margin: 5px auto;
+  max-width: 345px;
+  height: 175px;
+  perspective: 7500px;
+ }
+ 
+ img {
+  max-width: 100%;
+  max-height: 100%;
+ }
+
+ /*- Card body -*/
+.card-body {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: all .6s linear;
+ }
+ 
+ /*- Flipping the card -*/
+ .card-container:hover .card-body {
+  transform: rotateY(180deg);
+ }
+ 
+ .card-container:hover > .card-body > .side-front {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 2s ease-in, visibility .9s linear;
+ }
+
+ /*- Card sides -*/
+.card-side {
+  position: absolute;
+  top: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  color: #212121;
+  background-color: #fff;
+  backface-visibility: hidden;
+  box-shadow: 0 5px 7px rgba(50,50,93,.1),0 2px 15px rgba(0,0,0,.07);
+ }
+
+ /*- Frontside -*/
+.side-front [class^=col-xs]:first-of-type {
+  padding-left: 0;
+ }
+ 
+ .side-front-content {
+  padding-top:70px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+ }
+
+ /*- Backside -*/
+
+.side-back {
+  /* z-index: 2; */
+  padding-top: 0px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+  text-align: center;
+  transform: rotateY(180deg);
+ }
